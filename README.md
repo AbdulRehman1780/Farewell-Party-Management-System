@@ -1,9 +1,9 @@
 # Farewell Party Management System
 
 **Team Members:**
-- Moeez Ahmed 
+- Abdul Rehman
+- Moeez Ahmed
 - Meeran Ali 
-- Abdul Rehman 
 
 ## Introduction
 The Farewell Party Management System is designed to streamline the planning, organization, and execution of a farewell party event. It offers features to manage various aspects, including budget, performance scheduling, menu planning, invitation management, and event updates.
