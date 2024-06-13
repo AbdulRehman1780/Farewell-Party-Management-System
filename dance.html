@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Manager Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-sOiL8hROw5l+GGbH9T8ncYU8uM5DwyE7CeDG7Y7w8zXIo8vauXrXfJG81hxPTMtY2FWA+gmDDJoY7wGCRaPm5g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            margin: 0;
+            background-color: #302e2ed3;
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+        }
+
+        section {
+            background-color: #302e2ed3;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 46px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #000000;
+            margin-right: 5px;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="registration.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h1>DANCE AND PERFORMANCE TEAM</h1>
+
+    <section>
+        <p><strong>Team Head:</strong> <span style="font-size: 18px;">Sir Hassan Raza</span></p>
+        <h3>Dance Performers</h3>
+        <ul>
+            <li>Ammar</li>
+            <li>Shaheer</li>
+            <li>Moiz</li>
+        </ul>
+
+        <h3>Cultured Performance</h3>
+        <p><strong>Punjabi:</strong> <i class="icon fas fa-bhangra"></i> Ahmed, Ali, Raza</p>
+        <p><strong>Peshaweri:</strong> <i class="icon fas fa-dhol"></i> Omar, Abubakar, Bilal</p>
+        <p><strong>Sindhi:</strong> <i class="icon fas fa-sindhi"></i> Ahmed, Shammaz, Hassaan, Taimor</p>
+        <p><strong>Balochi:</strong> <i class="icon fas fa-tambourine"></i> Ahsan, Abdullah, Usama</p>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: rgb(237, 237, 237);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-template-rows: repeat(6, auto); /* 6 rows (added one for team selection) */
+            grid-gap: 12px; /* Spacing between cells */
+            width: 450px; /* Adjusted width */
+            padding: 20px;
+            border: 1px solid rgb(150, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(231, 23, 23, 0.1);
+            margin-bottom: 15px;
+            text-align: left;
+            background-color: rgba(108, 4, 4, 0.9);
+            z-index: 1;
+            position: relative;
+            color: rgb(255, 255, 255);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            grid-column: span 2; /* Make the submit button span 2 columns */
+            padding: 15px;
+            font-size: 18px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333333;
+        }
+
+        .teamSelect {
+            grid-column: span 2; /* Make the team selection span 2 columns */
+            display: none; /* Hide the team selection initially */
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="registration.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h1>REGISTRATION</h1>
+    <form action="/register" method="POST">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="confirmedPassword">Confirm Password:</label>
+        <input type="password" id="confirmedPassword" name="confirmedPassword" required>
+        
+        <label for="nuIdInput">NU-ID:</label>
+        <input type="text" id="nuIdInput" name="nuIdInput">
+        
+        <label for="roleSelect">Role:</label>
+        <select id="roleSelect" name="roleSelect">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        
+        <label for="EmailSelect">Email:</label>
+        <input type="text" id="EmailSelect" name="EmailSelect">
+        
+        <label for="accompanyingSelect">Accompanying:</label>
+        <select id="accompanyingSelect" name="accompanyingSelect">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        
+        <label for="familyMembersSelect">Family Members:</label>
+        <select id="familyMembersSelect" name="familyMembersSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+        <!-- New select for team or guest -->
+        <label for="teamOrGuestSelect">Are you part of a team or a guest?</label>
+        <select id="teamOrGuestSelect" name="teamOrGuestSelect" onchange="showTeamSelectOptions()">
+            <option value="guest">Guest</option>
+            <option value="team">Team</option>
+        </select>
+
+        <!-- Team selection -->
+        <div class="teamSelect" id="teamSelectDiv">
+            <label for="teamSelect">Select Team:</label>
+            <select id="teamSelect" name="teamSelect">
+                <option value="Menu Team">Menu Team</option>
+                <option value="Performance Team">Performance Team</option>
+                <option value="Invitation Team">Invitation Team</option>
+            </select>
+        </div>
+        
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function showTeamSelectOptions() {
+            var teamOrGuestSelect = document.getElementById("teamOrGuestSelect");
+            var teamSelectDiv = document.getElementById("teamSelectDiv");
+
+            if (teamOrGuestSelect.value === "team") {
+                teamSelectDiv.style.display = "grid";
+            } else {
+                teamSelectDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

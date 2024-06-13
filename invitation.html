@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Manager Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #302e2ed3;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 46px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            text-align: center;
+            color: #d3d3d3;
+            margin-bottom: 30px;
+        }
+
+        .invitation-section {
+            background-color: #302e2ed3;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            width: 300px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .invitation-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .invitation-list-item {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #d3d3d3;
+            border-bottom: 1px solid #797979;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .invitation-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .send-invites-btn {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        .send-invites-btn:hover {
+            background-color: #727c73;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<script>
+    function sendInvitations() {
+        const facultyMembers = ['Sir Asim', 'Naveed', 'Hassan Mujtaba', 'Khubaib', 'Ammar Masood'];
+
+        // Get the invitation list element
+        const invitationList = document.getElementById('invitationList');
+
+        // Clear existing invitations
+        invitationList.innerHTML = '';
+
+        // Add new invitations
+        facultyMembers.forEach(member => {
+            const listItem = document.createElement('li');
+            listItem.className = 'invitation-list-item';
+            listItem.textContent = `${member} - Status: Pending`;
+            invitationList.appendChild(listItem);
+        });
+    }
+</script>
+
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="registration.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h1>INVITATION TEAM</h1>
+
+    <div class="invitation-section">
+        <h2>Invitations</h2>
+        <ul class="invitation-list" id="invitationList">
+            <!-- Invitation items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <button class="send-invites-btn" onclick="sendInvitations()">Send Invitations</button>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif; /* Font from Code 1 */
+            display: flex;
+            flex-direction: column; /* Added to match Code 1 */
+            align-items: center; /* Added to match Code 1 */
+            justify-content: center; /* Added to match Code 1 */
+            height: 95vh; /* Added to match Code 1 */
+            background: linear-gradient(to right, #3f0d12, #a71d31); /* Background color from Code 1 */
+            color: #fff; /* Text color from Code 1 */
+        }
+
+        h1 {
+            font-size: 70px;
+            text-align: center;
+            color: rgb(124, 46, 46);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        form {
+            background-color: rgba(107, 4, 4, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(43, 15, 15, 0.1);
+            width: 300px;
+            margin: 20px auto; /* Centering the form horizontally */
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #e6e0e5;
+            color: #000000;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #312621cc;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+       function handleLoginFormSubmit() {
+    $.post('/managerlogin', $('#loginForm').serialize(), function (response) {
+        if (response.authentication) {
+            const lowercaseRole = response.role.toLowerCase();
+            if (lowercaseRole === 'budget-manager') {
+                window.location.href = 'budget.html';
+            } else if (lowercaseRole === 'dance-manager') {
+                window.location.href = 'dance.html';
+            } else if (lowercaseRole === 'invitation-manager') {
+                window.location.href = 'invitation.html';
+            } else if (lowercaseRole === 'head-manager') {
+                window.location.href = 'head.html';
+            } else {
+                console.log('Unrecognized role');
+            }
+        } else {
+            console.log('Login failed');
+        }
+    });
+}
+
+    </script>
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="login.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h1>MANAGER LOGIN</h1>
+
+    <form id="loginForm" onsubmit="handleLoginFormSubmit(); return false;" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+
+</html>

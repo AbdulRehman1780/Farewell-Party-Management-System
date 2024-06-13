@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Manager Dashboard</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+        }
+
+        header {
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: rgb(237, 237, 237);
+        }
+
+        p {
+            margin-bottom: 2em;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .nav-container {
+            background-color: rgba(109, 109, 109, 0.9);
+            border: 1px solid #b50000;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(245, 12, 12, 0.1);
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #660909;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            color: #820000;
+            background-color: #ddd;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(6, auto);
+            grid-gap: 12px;
+            width: 450px;
+            padding: 20px;
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+            margin-bottom: 15px;
+            text-align: left;
+            background-color: rgba(7, 3, 7, 0.9);
+            z-index: 1;
+            position: relative;
+            color: rgb(255, 255, 255, 0.9);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            grid-column: span 2;
+            padding: 15px;
+            font-size: 18px;
+            background-color: rgba(7, 3, 7, 0.9);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000000;
+        }
+
+        .teamSelect {
+            grid-column: span 2;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome, Head Manager!</h1>
+        <p>You have access to all pages.</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="budget.html">Budget Page</a></li>
+                <li><a href="dance.html">Dance Page</a></li>
+                <li><a href="invitation.html">Invitation Page</a></li>
+                <li><a href="menu.html">Menu Page</a></li>
+                <li><a href="performances.html">Performances Page</a></li>
+                <li><a href="event_updates.html">Events Page</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Add head-manager-specific content here -->
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="registration.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+
+</html>

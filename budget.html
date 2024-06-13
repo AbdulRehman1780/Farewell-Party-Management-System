@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracking</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 46px;
+        }
+
+        form {
+            background-color: #302e2ed3;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            width: 300px;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d3d3d3;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #797979;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #727c73;
+        }
+
+        #balance {
+            text-align: center;
+            margin-top: 10px; /* Adjusted margin */
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Function to handle the budget form submission
+        function handleBudgetFormSubmit() {
+            // Get values from the form
+            const income = parseFloat(document.getElementById('income').value) || 0;
+            const expense = parseFloat(document.getElementById('expense').value) || 0;
+
+            // Calculate the new balance
+            const currentBalance = parseFloat(document.getElementById('balance').innerText) || 0;
+            const newBalance = currentBalance + income - expense;
+
+            // Update the balance on the page
+            document.getElementById('balance').innerText = newBalance.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="registration.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <h1>BUDGET TEAM</h1>
+
+    <form id="budgetForm" onsubmit="handleBudgetFormSubmit(); return false;" method="post">
+        <label for="income">Budget:</label>
+        <input type="number" id="income" name="income" step="0.01" required>
+
+        <label for="expense">Expense:</label>
+        <input type="number" id="expense" name="expense" step="0.01" required>
+
+        <input type="submit" value="Update Budget">
+
+        <div id="balance">Current Balance: 0.00</div>
+    </form>
+</body>
+</html>
